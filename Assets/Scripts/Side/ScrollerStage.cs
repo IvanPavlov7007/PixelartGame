@@ -7,7 +7,7 @@ public class ScrollerStage : MonoBehaviour
 {
     //Input for the next "run"
     public Vector2 maxScrollDistance;
-    public float speed;
+    //public float speed;
     public float triggerNextStageDistance;
     public Transform offset_leftBottom;
     public event System.Action triggerNextStage;
@@ -19,7 +19,10 @@ public class ScrollerStage : MonoBehaviour
     protected float current_triggerNextStageDistance;
     protected Vector2 scrolledDistance;
     protected bool nextStageTriggered, atTheEnd;
+    public bool triggerAtTheEnd = false;
 
+
+    RoadManager rm;
 
     private void Awake()
     {
@@ -28,14 +31,14 @@ public class ScrollerStage : MonoBehaviour
 
     void Start()
     {
-        
+        rm = RoadManager.instance;
     }
     
     void Update()
     {
         if (atTheEnd)
             return;
-        scrolledDistance += current_maxScrollDistance.normalized * Time.deltaTime * speed;
+        scrolledDistance += current_maxScrollDistance.normalized * Time.deltaTime * (rm == null? 0f : rm.speed);
         Vector2 dif = current_maxScrollDistance - scrolledDistance;
         if(!nextStageTriggered && dif.magnitude < current_triggerNextStageDistance)
         {

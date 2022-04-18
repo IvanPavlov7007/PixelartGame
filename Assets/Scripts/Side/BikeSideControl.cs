@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BikeControl : MonoBehaviour
+public class BikeSideControl : MonoBehaviour
 {
     KeyControl keyControl;
 
