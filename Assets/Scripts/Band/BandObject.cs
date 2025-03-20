@@ -5,26 +5,15 @@ using UnityEngine;
 public class BandObject : MonoBehaviour
 {
     public virtual float bandPosition { get; set; }
-    public virtual float boundary { get; set; }
+    public virtual float bandWidthPosition { get; set; } // TODO make a vector of a structure
 
     public virtual void Start()
     {
         WorldBand.Instance.registerBandObject(this);
     }
 
-    protected virtual void OnDestroy()
+    protected virtual void OnDisable()
     {
         WorldBand.Instance.removeBandObject(this);
     }
-
-    public virtual void UpdateWorldPosition(float currentPosition)
-    {
-    }
-}
-
-[System.Serializable]
-public struct ScreenContext
-{
-    public Transform center;
-    public Rect worldRect;
 }

@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideViewBandObject : BandObject
+public class SideRepresentation : Representation
 {
-    [Tooltip("Values bigger than 1 slow down the object(put onto background) \nvalues less than 1 speed up (put onto foreground) \n1 means the object renders at the camera's plane ")]
-    public float paralaxRange = 1f;
-    public float xBandPosition;
+    public float parallaxRange = 1f;
     public float xBoundary = 20f;
-    public override float bandPosition { get => xBandPosition; set => xBandPosition = value; }
-    public override float boundary { get => xBoundary; set => xBoundary = value; }
-    public override void UpdateWorldPosition(float currentPosition)
+
+    public override void Draw(float bandPosition)
     {
         //translating into camera coordinates
-        var delta = paralaxPosition(currentPosition);
+        var delta = parallaxPosition(bandPosition);
         if (Mathf.Abs(delta) <= xBoundary)
         {
             setWorldPos(delta);
@@ -21,7 +18,7 @@ public class SideViewBandObject : BandObject
         else
         {
             //hide
-            setWorldPos(2 * boundary);
+            setWorldPos(2 * xBoundary);
         }
     }
 
@@ -30,10 +27,10 @@ public class SideViewBandObject : BandObject
     /// or opposite for the foreground objects
     /// </summary>
     /// <returns></returns>
-    protected virtual float paralaxPosition(float currentPosition)
+    protected virtual float parallaxPosition(float currentPosition)
     {
         //if paralaxRange = 1 equation becomes  return xBandPosition - currentPosition
-        return (xBandPosition - currentPosition) / paralaxRange;
+        return (bandObject.bandPosition - currentPosition) / parallaxRange;
     }
 
     protected virtual void setWorldPos(float xPos)

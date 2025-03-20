@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BikeVisualController : MonoBehaviour
 {
-    CharacterMovement characterController;
+    [SerializeField]
+    BikeControl bikeControl;
     SpriteRenderer sr;
 
     public Sprite sideSprite;
@@ -16,14 +17,13 @@ public class BikeVisualController : MonoBehaviour
 
     void Start()
     {
-        characterController = GetComponent<CharacterMovement>();
         sr = GetComponentInChildren<SpriteRenderer>();
         origSprite = sr.sprite;
     }
 
     void Update()
     {
-        var dir = characterController.direction.x;
+        var dir = bikeControl.direction.x;
         if (dir > tolerance || dir < -tolerance)
         {
             sr.sprite = sideSprite;

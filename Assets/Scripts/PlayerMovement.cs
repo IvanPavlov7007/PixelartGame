@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO should I get rid of that???
 public class PlayerMovement : MonoBehaviour
 {
-    CharacterMovement characterMovement;
+    public CharacterMovement characterMovement;
 
     // Singletone pattern
     private static PlayerMovement instance;
@@ -15,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {
-        characterMovement = GetComponent<CharacterMovement>();
+        if(characterMovement == null)
+            characterMovement= GetComponent<CharacterMovement>();
     }
 
     void Update()

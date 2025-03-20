@@ -8,12 +8,12 @@ public class MotorSound : MonoBehaviour
     public float minPitch, maxPitch;
     public float minStereo, maxStereo;
 
-    BikeTopdownControl bike;
+    [SerializeField]
+    BikeControl bike;
 
     void Start()
     {
         aud = GetComponent<AudioSource>();
-        bike = PlayerMovement.Instance.GetComponent<BikeTopdownControl>();
     }
 
     // Update is called once per frame
