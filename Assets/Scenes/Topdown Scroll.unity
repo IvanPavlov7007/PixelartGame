@@ -560,7 +560,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1154298437}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555419842
 GameObject:
@@ -734,7 +734,7 @@ Transform:
   - {fileID: 10648054}
   - {fileID: 421463750}
   m_Father: {fileID: 1154298437}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &788552926
 MonoBehaviour:
@@ -890,12 +890,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 0
-  minSpeed: 2
-  speedAccelerator: 1
+  minSpeed: 0.5
+  speedAccelerator: 0.5
   currentSceneSpeed: 0
   currentScenePosition: 0
   bikeControl: {fileID: 63900960}
   topView: {fileID: 1154298436}
+  sideView: {fileID: 0}
 --- !u!4 &869888830
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,7 +1041,7 @@ Transform:
   m_Children:
   - {fileID: 1279652347}
   m_Father: {fileID: 1154298437}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &934214337
 AudioSource:
@@ -1228,11 +1229,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 519420032}
   - {fileID: 934214336}
   - {fileID: 1449727508}
   - {fileID: 788552925}
   - {fileID: 1533234634}
-  - {fileID: 519420032}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1349,7 +1350,7 @@ Transform:
   - {fileID: 814936887}
   - {fileID: 285889793}
   m_Father: {fileID: 1154298437}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1449727509
 MonoBehaviour:
@@ -1413,7 +1414,7 @@ Transform:
   - {fileID: 709079592}
   - {fileID: 884371489}
   m_Father: {fileID: 1154298437}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1533234635
 MonoBehaviour:

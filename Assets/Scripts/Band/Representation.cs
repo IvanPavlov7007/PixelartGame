@@ -21,3 +21,9 @@ public abstract class Representation : MonoBehaviour
         onDisabled?.Invoke(this);
     }
 }
+
+
+public class ViewData
+{
+    public Transform centerOfCoordinates;
+}

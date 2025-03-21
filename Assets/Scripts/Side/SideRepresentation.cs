@@ -35,8 +35,10 @@ public class SideRepresentation : Representation
 
     protected virtual void setWorldPos(float xPos)
     {
-        var pos = transform.position;
+
+
+        var pos = transform.localPosition;
         pos.x = xPos;
-        transform.position = pos;
+        transform.localPosition = pos;
     }
 }

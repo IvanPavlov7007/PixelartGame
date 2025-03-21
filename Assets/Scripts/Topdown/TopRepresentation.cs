@@ -35,15 +35,15 @@ public class TopRepresentation : Representation
 
     protected virtual void setWorldPos(float yPos, float xPos)
     {
-        var pos = transform.position;
+        var pos = transform.localPosition;
         pos.y = yPos;
         pos.x = xPos;
-        transform.position = pos;
+        transform.localPosition = pos;
     }
     protected virtual void setWorldPos(float yPos)
     {
-        var pos = transform.position;
+        var pos = transform.localPosition;
         pos.y = yPos;
-        transform.position = pos;
+        transform.localPosition = pos;
     }
 }

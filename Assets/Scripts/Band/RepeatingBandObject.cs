@@ -9,7 +9,7 @@ public class RepeatingBandObject : BandObject
     [Header("Repeating Settings")]
     public float periodDistance = 2f;
     public float offsetDistance = 0f;
-    public float startingDistance = 0f;
+    public float startingDistance = -100f;
 
     public void updateRepeatingPosition(float currentPosition)
     {
