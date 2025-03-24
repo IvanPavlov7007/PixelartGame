@@ -2680,7 +2680,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 0.972
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -3555,12 +3555,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 1781956604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2a9d831bb804a4ba754ca9e79a69ff, type: 3}
+  m_Script: {fileID: 11500000, guid: a345fa5096627b741b8bf16b182eb5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bandObject: {fileID: 1066775267}
   parallaxRange: 1
   xBoundary: 20
+  minY: -0.05
+  maxY: 0
+  minBandWidth: -0.35
+  maxBandWidth: 0.35
+--- !u!114 &1781956606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781956604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3591f2ef617744da613f0faf45ee58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bikeControl: {fileID: 1066775268}
+  leaningLeft: {fileID: 2890452405009142429, guid: a537e188fd5df5e47983ecc9954fb67d,
+    type: 3}
+  leaninghRight: {fileID: -1729743505602064814, guid: a537e188fd5df5e47983ecc9954fb67d,
+    type: 3}
+  tolerance: 0.2
 --- !u!1 &1793524523
 GameObject:
   m_ObjectHideFlags: 0
