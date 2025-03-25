@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BandObject : MonoBehaviour
 {
-    public virtual float bandPosition { get; set; }
-    public virtual float bandWidthPosition { get; set; } // TODO make a vector of a structure
-
-    public virtual void Start()
+    public float bandPosition;
+    public float bandWidthPosition; // TODO make a vector of a structure
+    public void UpdateLogic()
     {
-        WorldBand.Instance.registerBandObject(this);
+        onLogicUpdate?.Invoke(this);
     }
 
-    protected virtual void OnDisable()
+
+    public event Action<BandObject> onLogicUpdate;
+    public event Action<BandObject> onDestroyed;
+
+    protected virtual void OnDestroy()
     {
-        WorldBand.Instance.removeBandObject(this);
+        onDestroyed?.Invoke(this);
     }
 }

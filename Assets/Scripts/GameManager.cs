@@ -18,8 +18,19 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //TODO see TopView
-        repeatingBandObjects.AddRange( FindObjectsOfType<RepeatingBandObject>());
+        WorldBand.Instance.initializeBandObjects();
+        repeatingBandObjects.AddRange(FindObjectsOfType<RepeatingBandObject>());
+        initializeViews();
+    }
+
+    private void initializeViews()
+    {
+        topView.representatorTop.findExistingRepresentationsInScene();
+        sideView.representatorSide.findExistingRepresentationsInScene();
+        foreach (var obj in WorldBand.Instance.bandObjects)
+        {
+            registerRepresentationsForBandObject(obj);
+        }
     }
 
     private void Update()
@@ -29,11 +40,44 @@ public class GameManager : Singleton<GameManager>
         currentSceneSpeed = bikeControl.speedUp * speedAccelerator + minSpeed;//TODO for now
         currentScenePosition += currentSceneSpeed * Time.deltaTime;
         bikeControl.UpdateBandObjectPosition(currentScenePosition);
+
+        WorldBand.Instance.UpdateLogic();
+
         relocateRepeatingObjects();//TODO look the class definiton
         if (topView)
             topView.drawScene(currentScenePosition);
         if (sideView)
             sideView.drawScene(currentScenePosition);
+    }
+
+    private void logicUpdate()
+    {
+
+    }
+
+    public BandObject SpawnNewBandObject(GameObject prefab)
+    {
+        var bandObject = WorldBand.Instance.spawnNewBandObject(prefab);
+        registerRepresentationsForBandObject(bandObject);
+        return bandObject;
+    }
+
+    public void registerRepresentationsForBandObject(BandObject bandObject)
+    {
+        topView.representatorTop.addRepresentedObject(bandObject);
+        sideView.representatorSide.addRepresentedObject(bandObject);
+    }
+
+    public void DestroyBandObject(BandObject bandObject)
+    {
+        destroyRepresentationsForBandObject(bandObject);
+        Destroy(bandObject);
+    }
+
+    public void destroyRepresentationsForBandObject(BandObject bandObject)
+    {
+        topView.representatorTop.onBandObjectDestroy(bandObject);
+        sideView.representatorSide.onBandObjectDestroy(bandObject);
     }
 
     private void relocateRepeatingObjects()
