@@ -7,13 +7,14 @@ public class BandObject : MonoBehaviour
 {
     public float bandPosition;
     public float bandWidthPosition; // TODO make a vector of a structure
-    public void UpdateLogic()
+    public float bandHightPosition;
+    public void UpdateLogic(float scenePosition)
     {
-        onLogicUpdate?.Invoke(this);
+        onLogicUpdate?.Invoke(this, scenePosition);
     }
 
 
-    public event Action<BandObject> onLogicUpdate;
+    public event Action<BandObject, float> onLogicUpdate;
     public event Action<BandObject> onDestroyed;
 
     protected virtual void OnDestroy()

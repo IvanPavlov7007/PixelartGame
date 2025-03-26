@@ -13,12 +13,12 @@ public class SideRepresentation : Representation
         var delta = parallaxPosition(bandPosition);
         if (Mathf.Abs(delta) <= xBoundary)
         {
-            setWorldPos(delta);
+            setWorldPos(delta, bandObject.bandHightPosition);
         }
         else
         {
             //hide
-            setWorldPos(2 * xBoundary);
+            setWorldPos(2 * xBoundary, bandObject.bandHightPosition);
         }
     }
 
@@ -31,6 +31,14 @@ public class SideRepresentation : Representation
     {
         //if paralaxRange = 1 equation becomes  return xBandPosition - currentPosition
         return (bandObject.bandPosition - currentPosition) / parallaxRange;
+    }
+
+    protected virtual void setWorldPos(float xPos, float yPos)
+    {
+        var pos = transform.localPosition;
+        pos.x = xPos;
+        pos.y = yPos;
+        transform.localPosition = pos;
     }
 
     protected virtual void setWorldPos(float xPos)

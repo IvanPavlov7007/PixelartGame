@@ -17,11 +17,11 @@ public class WorldBand : Singleton<WorldBand>
         }
     }
 
-    public void UpdateLogic()
+    public void UpdateLogic(float scenePosition)
     {
         foreach (var obj in bandObjects)
         {
-            obj.UpdateLogic();
+            obj.UpdateLogic(scenePosition);
         }
     }
 

@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
         currentScenePosition += currentSceneSpeed * Time.deltaTime;
         bikeControl.UpdateBandObjectPosition(currentScenePosition);
 
-        WorldBand.Instance.UpdateLogic();
+        WorldBand.Instance.UpdateLogic(currentScenePosition);
 
         relocateRepeatingObjects();//TODO look the class definiton
         if (topView)
