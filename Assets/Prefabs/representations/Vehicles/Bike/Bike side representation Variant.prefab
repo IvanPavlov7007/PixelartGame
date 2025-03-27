@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bikeControl: {fileID: 0}
+  vehicle: {fileID: 0}
   leaningLeft: {fileID: 2890452405009142429, guid: a537e188fd5df5e47983ecc9954fb67d,
     type: 3}
   leaninghRight: {fileID: -1729743505602064814, guid: a537e188fd5df5e47983ecc9954fb67d,
@@ -106,10 +107,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 768602066201511466, guid: 05986f58d46e1134f86d6bc4fba23007,
+        type: 3}
+      propertyPath: s
+      value: 
+      objectReference: {fileID: 2273376992870004409}
     - target: {fileID: 5934295273513353039, guid: 05986f58d46e1134f86d6bc4fba23007,
         type: 3}
       propertyPath: m_Name
-      value: Bike side representation
+      value: Bike side representation Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8076342690735298345, guid: 05986f58d46e1134f86d6bc4fba23007,
         type: 3}

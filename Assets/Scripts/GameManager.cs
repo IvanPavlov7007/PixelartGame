@@ -5,11 +5,17 @@ using Pixelplacement;
 
 public class GameManager : Singleton<GameManager>
 {
+    public float currentScenePosition = 0f;
+    
+    [Space]
     public float minSpeed = 2f;
-    public float speedAccelerator = 2f;
+    public float bikeSpeedAccelerator = 2f;
     // Might be expanded to a struct or a class
     public float currentSceneSpeed = 1.6f;
-    public float currentScenePosition = 0f;
+    
+    public float bikeControlSpeedRange = 1f;
+    public float baseSpeed = 0f;
+    public SpeedController speedController;
     List<RepeatingBandObject> repeatingBandObjects = new List<RepeatingBandObject>();
 
     public BikeControl bikeControl;
@@ -37,22 +43,22 @@ public class GameManager : Singleton<GameManager>
     {
         bikeControl.direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
         bikeControl.UpdateInputs();
-        currentSceneSpeed = bikeControl.speedUp * speedAccelerator + minSpeed;//TODO for now
-        currentScenePosition += currentSceneSpeed * Time.deltaTime;
+
+        currentScenePosition += speedController.calculateCurrentSpeed(bikeControl) * Time.deltaTime;
         bikeControl.UpdateBandObjectPosition(currentScenePosition);
 
-        WorldBand.Instance.UpdateLogic(currentScenePosition);
+        logicUpdate();
 
-        relocateRepeatingObjects();//TODO look the class definiton
         if (topView)
             topView.drawScene(currentScenePosition);
         if (sideView)
             sideView.drawScene(currentScenePosition);
     }
-
     private void logicUpdate()
     {
-
+        WorldBand.Instance.UpdateLogic(currentScenePosition);
+        relocateRepeatingObjects();//TODO look the class definiton
+        WorldBand.Instance.CheckCollisions(currentScenePosition);
     }
 
     public BandObject SpawnNewBandObject(GameObject prefab)

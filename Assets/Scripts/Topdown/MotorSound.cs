@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MotorSound : MonoBehaviour
+public class MotorSound : RepresentationComponent
 {
     AudioSource aud;
     public float minPitch, maxPitch;
@@ -14,6 +14,11 @@ public class MotorSound : MonoBehaviour
     void Start()
     {
         aud = GetComponent<AudioSource>();
+    }
+
+    protected override void initialize(BandObject bandObject)
+    {
+        bike = bandObject.GetComponent<BikeControl>();
     }
 
     // Update is called once per frame

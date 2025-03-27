@@ -109,6 +109,9 @@ GameObject:
   - component: {fileID: 8487226550439778615}
   - component: {fileID: 4826222063671594877}
   - component: {fileID: 7040601230063066059}
+  - component: {fileID: 3527063327777200551}
+  - component: {fileID: 3417229024520414883}
+  - component: {fileID: -4770806306740361368}
   m_Layer: 0
   m_Name: Vehicle Band Object base
   m_TagString: Untagged
@@ -202,4 +205,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bandDirection: 1
   bandWidthDirection: 0
-  bandHightDirection: 1
+  bandHightDirection: 3
+--- !u!65 &3527063327777200551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785865797540915000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 0.3, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3417229024520414883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785865797540915000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eaec23c5edb6c14099ad18c1fccac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 3527063327777200551}
+--- !u!114 &-4770806306740361368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8785865797540915000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08fa25b8467b009478445b7a85485c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

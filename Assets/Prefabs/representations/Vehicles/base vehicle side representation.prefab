@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8510356374744092758}
   - component: {fileID: 8076342690735298345}
+  - component: {fileID: 768602066201511466}
   m_Layer: 0
   m_Name: base vehicle side representation
   m_TagString: Untagged
@@ -46,7 +47,19 @@ MonoBehaviour:
   bandObject: {fileID: 0}
   parallaxRange: 1
   xBoundary: 20
-  minY: -0.02
-  maxY: 0
-  minBandWidth: -0.35
-  maxBandWidth: 0.35
+  rend: {fileID: 0}
+--- !u!114 &768602066201511466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5934295273513353039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 137c86ea0a285104789fee3b5a9b8c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  s: {fileID: 0}
+  initColor: {r: 1, g: 1, b: 1, a: 1}
+  endColor: {r: 0.9150943, g: 0.19424175, b: 0.19424175, a: 0.6313726}

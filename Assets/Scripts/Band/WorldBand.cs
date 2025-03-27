@@ -7,6 +7,7 @@ public class WorldBand : Singleton<WorldBand>
 {
 
     public List<BandObject> bandObjects = new List<BandObject>();
+    public List<BandObjectCollision> collisions = new List<BandObjectCollision>();
 
     public void initializeBandObjects()
     {
@@ -25,6 +26,14 @@ public class WorldBand : Singleton<WorldBand>
         }
     }
 
+    public void CheckCollisions(float scenePosition)
+    {
+        foreach (var col in collisions)
+        {
+            col.CheckCollisions();
+        }
+    }
+
     public void registerBandObject(BandObject bandObject)
     {
         if(bandObjects.Contains(bandObject))
@@ -34,6 +43,8 @@ public class WorldBand : Singleton<WorldBand>
         }
         bandObjects.Add(bandObject);
         bandObject.onDestroyed += onBandObjectDestryoed;
+
+        findCollision(bandObject);
     }
 
     public void removeBandObject(BandObject bandObject)
@@ -43,7 +54,27 @@ public class WorldBand : Singleton<WorldBand>
             Debug.LogError(bandObject.name + " is not registered as a band object");
             return;
         }
+        removeCollision(bandObject);
         bandObjects.Remove(bandObject);
+    }
+
+
+    private void findCollision(BandObject bandObject)
+    {
+        var collision = bandObject.GetComponent<BandObjectCollision>();
+        if (collision != null && !collisions.Contains(collision))
+        {
+            collisions.Add(collision);
+        }
+    }
+
+    private void removeCollision(BandObject bandObject)
+    {
+        var collision = bandObject.GetComponent<BandObjectCollision>();
+        if (collision != null && !collisions.Contains(collision))
+        {
+            collisions.Remove(collision);
+        }
     }
 
     private void onBandObjectDestryoed(BandObject bandObject)

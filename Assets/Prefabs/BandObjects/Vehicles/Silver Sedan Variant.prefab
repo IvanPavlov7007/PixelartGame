@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3527063327777200551, guid: 5a384ad074cf2374f89b99f902ff5a46,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.36946422
+      objectReference: {fileID: 0}
+    - target: {fileID: 3527063327777200551, guid: 5a384ad074cf2374f89b99f902ff5a46,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.0010524988
+      objectReference: {fileID: 0}
     - target: {fileID: 4826222063671594877, guid: 5a384ad074cf2374f89b99f902ff5a46,
         type: 3}
       propertyPath: representationRecipes.Array.size
@@ -29,10 +39,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4122609866217933980, guid: 5bc24e0841dc065489703488f4b0ee8e,
         type: 3}
+    - target: {fileID: 5758290053507610939, guid: 5a384ad074cf2374f89b99f902ff5a46,
+        type: 3}
+      propertyPath: m_MaskInteraction
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8785865797540915000, guid: 5a384ad074cf2374f89b99f902ff5a46,
         type: 3}
       propertyPath: m_Name
-      value: Silver Sedan
+      value: Silver Sedan Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8785865797540915003, guid: 5a384ad074cf2374f89b99f902ff5a46,
         type: 3}

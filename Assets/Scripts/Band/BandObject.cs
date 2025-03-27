@@ -10,6 +10,7 @@ public class BandObject : MonoBehaviour
     public float bandHightPosition;
     public void UpdateLogic(float scenePosition)
     {
+        transform.position = new Vector3(bandWidthPosition, bandPosition, bandHightPosition);
         onLogicUpdate?.Invoke(this, scenePosition);
     }
 
