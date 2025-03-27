@@ -17,11 +17,6 @@ public class BikeControl : MonoBehaviour
 
     public BandObject bandObject;
 
-    void Start()
-    {
-        bandObject = GetComponent<BandObject>();
-    }
-
     // Update is called once per frame
     public void UpdateInputs()
     {

@@ -7,6 +7,8 @@ public class SideRepresentation : Representation
     public float parallaxRange = 1f;
     public float xBoundary = 20f;
 
+    //TODO maybe instead of SideBandWidthRepresentation apply sorting generally here???
+
     public override void Draw(float bandPosition)
     {
         //translating into camera coordinates

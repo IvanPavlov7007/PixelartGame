@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideBikeVisualController : MonoBehaviour
+public class SideBikeVisualController : RepresentationComponent
 {
 
     [SerializeField]
     BikeControl bikeControl;
+    [SerializeField]
+    Vehicle vehicle;
     [SerializeField]
     public Sprite leaningLeft, leaninghRight;
     SpriteRenderer sr;
@@ -21,9 +23,15 @@ public class SideBikeVisualController : MonoBehaviour
         origSprite = sr.sprite;
     }
 
+    protected override void initialize(BandObject bandObject)
+    {
+        bikeControl = bandObject.GetComponent<BikeControl>();
+        vehicle = bandObject.GetComponent<Vehicle>();
+    }
+
     void Update()
     {
-        var dir = bikeControl.direction.x;
+        var dir = vehicle.enabled? vehicle.direction.x : bikeControl.direction.x;
         if (dir > tolerance)
         {
             sr.sprite = leaninghRight;

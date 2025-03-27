@@ -93,9 +93,18 @@ public class Representator : MonoBehaviour
                 return null;
         }
         representation.bandObject = bandObject;
+        initializeRepresentationComponents(representation.gameObject, bandObject);
         return representation;
     }
 
+    private void initializeRepresentationComponents(GameObject representation, BandObject bandObject)
+    {
+        var components = representation.GetComponentsInChildren<RepresentationComponent>();
+        foreach(var c in components)
+        {
+            c.RepresentationInitialize(bandObject);
+        }
+    }
     public virtual void onBandObjectDestroy(BandObject bandObject)
     {
         Representation representation;

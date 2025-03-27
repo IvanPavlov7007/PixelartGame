@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2608023970051491983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2608023970051491976}
+  - component: {fileID: 2608023970051491982}
+  - component: {fileID: 2608023970051491977}
+  - component: {fileID: 2608023970051491973}
+  - component: {fileID: 2608023970051491979}
+  - component: {fileID: 2608023970051491978}
+  m_Layer: 0
+  m_Name: Bike
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2608023970051491976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2608023970051491982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb75f81c5b60674fa802d669bcde254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bandPosition: 0
+  bandWidthPosition: 0
+  bandHightPosition: 0
+--- !u!114 &2608023970051491977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25fb7231eafe9143be9a16e9edb01ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 0.35
+  minX: -0.35
+  maxY: 0.45
+  minY: -0.7
+  ySpeed: 2
+  xSpeed: 1.5
+  worldPosition: {x: 0, y: 0, z: 0}
+  bandObject: {fileID: 2608023970051491982}
+--- !u!114 &2608023970051491973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 946919eab0321774ca981972252a1060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  representationRecipes:
+  - type: 0
+    prefab: {fileID: 3871788932714726924, guid: a59ff2425b77ca7498b1e67bf0bb9a8d,
+      type: 3}
+  - type: 1
+    prefab: {fileID: 2557922076464817041, guid: df3e663c160683d45bf466267ad42c59,
+      type: 3}
+--- !u!114 &2608023970051491979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73c042f1fbd0ce049bdd554a0d93290a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxX: 0
+  minX: 0
+  velocityAlongAxes: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 1, z: 0}
+--- !u!114 &2608023970051491978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2608023970051491983}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0519fa6fc04a7034cab180a351cf6b66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unfreezeDistance: 1.5
