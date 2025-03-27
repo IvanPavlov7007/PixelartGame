@@ -21,6 +21,7 @@ public class GameManager : Singleton<GameManager>
     public BikeControl bikeControl;
     public TopView topView;
     public SideView sideView;
+    public Speedometer speedometer;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class GameManager : Singleton<GameManager>
 
         currentScenePosition += speedController.calculateCurrentSpeed(bikeControl) * Time.deltaTime;
         bikeControl.UpdateBandObjectPosition(currentScenePosition);
+        if (speedometer)
+            speedometer.t = speedController.currentSpeed / speedController.maxSpeed;
 
         logicUpdate();
 

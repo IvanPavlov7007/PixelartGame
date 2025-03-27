@@ -7,6 +7,8 @@ public class SpeedController : MonoBehaviour
 {
     public float currentSpeed = 1f;
     public float fixedSlowdownRange = 1f;
+    public float punishPercentage = 0.3f;
+    public float punishTime = 2f;
 
     //Acceleration balancing
     //https://www.desmos.com/calculator/pdk2zjjplu
@@ -23,6 +25,13 @@ public class SpeedController : MonoBehaviour
 
     private float baseSpeed;
 
+    private void Update()
+    {
+        SpeedPunishment.punishPercentage = punishPercentage;
+        SpeedPunishment.maxTime = punishTime;
+    }
+
+
     public float calculateCurrentSpeed(BikeControl bikeControl)
     {
         float deltaSpeed = 0f;
@@ -33,7 +42,10 @@ public class SpeedController : MonoBehaviour
 
         float slowdownRange = calculateBikeSlowdownRange(currentSpeed);
 
-        baseSpeed = Mathf.Clamp(baseSpeed + deltaSpeed, minSpeed + slowdownRange, maxSpeed);
+        // if punishment is existing, don't accelerate
+        baseSpeed = SpeedPunishment.payPunishment(ref baseSpeed)? baseSpeed : baseSpeed + deltaSpeed;
+
+        baseSpeed = Mathf.Clamp(baseSpeed, minSpeed + slowdownRange, maxSpeed);
         float result = baseSpeed - bikeControl.slowDown * slowdownRange;
         result = Mathf.Clamp(result, 0f, maxSpeed);
 
@@ -41,6 +53,7 @@ public class SpeedController : MonoBehaviour
         currentSpeed = result;
         return result;
     }
+
     private float calculateBikeSlowdownRange(float speed)
     {
         //todo make relative to speed
@@ -55,5 +68,61 @@ public class SpeedController : MonoBehaviour
     private float calculateDeceleration(float speed)
     {
         return -10f;//a - a * Mathf.Pow((b + speed) / b, p);
+    }
+
+    public class SpeedPunishment
+    {
+        public static float maxTime;
+        public static float punishPercentage;
+
+        float elapsedTime;
+        float highestSpeed;
+        float lowestSpeed;
+        bool valueFirstRead = false;
+
+        static SpeedPunishment currentPunishment;
+
+        private SpeedPunishment(){}
+
+        public static void Punish()
+        {
+            if (currentPunishment == null)
+                currentPunishment = new SpeedPunishment();
+        }
+
+        public static void ClearPunishment()
+        {
+            currentPunishment = null;
+        }
+
+        public static bool isBeingPunished => (currentPunishment != null);
+
+        public static bool payPunishment(ref float baseSpeed)
+        {
+            if (!isBeingPunished)
+                return false;
+            currentPunishment._payPunishment(ref baseSpeed);
+            return true;
+        }
+
+        private bool _payPunishment(ref float baseSpeed)
+        {
+            if(!valueFirstRead) // first call
+            {
+                highestSpeed = baseSpeed;
+                lowestSpeed = baseSpeed * (1f - punishPercentage);
+
+                valueFirstRead = true;
+            }
+
+            baseSpeed = Mathf.Lerp(highestSpeed, lowestSpeed, elapsedTime / maxTime);
+
+            if(elapsedTime >= maxTime)
+            {
+                currentPunishment = null;
+            }
+            elapsedTime += Time.deltaTime;
+            return true;
+        }
     }
 }

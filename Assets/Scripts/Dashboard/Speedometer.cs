@@ -7,7 +7,6 @@ public class Speedometer : MonoBehaviour
 {
     public Transform leftDirection;
     public Transform rightDirection;
-    public float maxUnclampedT;
     public float t;
 
     [SerializeField]
