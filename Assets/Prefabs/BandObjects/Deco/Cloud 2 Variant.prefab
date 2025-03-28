@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1797572650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2856008729685544083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3f1df4fb9688c4795161aea21e4bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallax: 10
+  screenWorldDistance: 0
+  offset: {x: 0, y: 0, z: 0}
+  colorLine: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  verticalsHight: 0.2
 --- !u!1001 &4882444358474964951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
@@ -41,17 +58,17 @@ PrefabInstance:
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7233759052697752387, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
@@ -71,7 +88,7 @@ PrefabInstance:
     - target: {fileID: 7233759052697752388, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
       propertyPath: m_Name
-      value: Cloud 2
+      value: Cloud 2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7233759053461602066, guid: 5ec2a27245970cc46a947c7ea610b134,
         type: 3}
@@ -81,3 +98,9 @@ PrefabInstance:
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec2a27245970cc46a947c7ea610b134, type: 3}
+--- !u!1 &2856008729685544083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7233759052697752388, guid: 5ec2a27245970cc46a947c7ea610b134,
+    type: 3}
+  m_PrefabInstance: {fileID: 4882444358474964951}
+  m_PrefabAsset: {fileID: 0}

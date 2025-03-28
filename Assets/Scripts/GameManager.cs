@@ -6,15 +6,7 @@ using Pixelplacement;
 public class GameManager : Singleton<GameManager>
 {
     public float currentScenePosition = 0f;
-    
-    [Space]
-    public float minSpeed = 2f;
-    public float bikeSpeedAccelerator = 2f;
-    // Might be expanded to a struct or a class
-    public float currentSceneSpeed = 1.6f;
-    
-    public float bikeControlSpeedRange = 1f;
-    public float baseSpeed = 0f;
+
     public SpeedController speedController;
     List<RepeatingBandObject> repeatingBandObjects = new List<RepeatingBandObject>();
 
@@ -60,7 +52,7 @@ public class GameManager : Singleton<GameManager>
     private void logicUpdate()
     {
         WorldBand.Instance.UpdateLogic(currentScenePosition);
-        relocateRepeatingObjects();//TODO look the class definiton
+        relocateRepeatingObjects();//TODO look the class definition
         WorldBand.Instance.CheckCollisions(currentScenePosition);
     }
 

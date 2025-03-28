@@ -7,6 +7,7 @@ public class Speedometer : MonoBehaviour
 {
     public Transform leftDirection;
     public Transform rightDirection;
+    public ArrowDrawer arrowDrawer;
     public float t;
 
     [SerializeField]
@@ -14,7 +15,9 @@ public class Speedometer : MonoBehaviour
 
     private void LateUpdate()
     {
-        lineRenderer.SetPosition(1, currentDirection());
+        //lineRenderer.SetPosition(1, currentDirection());
+        if(arrowDrawer)
+            arrowDrawer.Draw(transform.position, transform.position + currentDirection());
     }
 
     public Vector3 currentDirection()

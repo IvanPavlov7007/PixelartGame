@@ -67,7 +67,7 @@ public class SpeedController : MonoBehaviour
 
     private float calculateDeceleration(float speed)
     {
-        return -10f;//a - a * Mathf.Pow((b + speed) / b, p);
+        return - 2f * a * Mathf.Pow((b + speed) / b, p);
     }
 
     public class SpeedPunishment
