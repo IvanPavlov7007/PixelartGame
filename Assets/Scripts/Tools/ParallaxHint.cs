@@ -13,6 +13,7 @@ public class ParallaxHint : MonoBehaviour
     public float verticalsHight = 0.2f;
 }
 
+#if UNITY_EDITOR
 [CanEditMultipleObjects]
 [CustomEditor(typeof(ParallaxHint))]
 public class ParallaxHintEditor : Editor
@@ -44,3 +45,4 @@ public class ParallaxHintEditor : Editor
         Handles.DrawLine(down, up);
     }
 }
+#endif

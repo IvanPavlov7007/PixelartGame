@@ -72,7 +72,9 @@ public class Representator : MonoBehaviour
         {
             Debug.LogError(ex);
         }
+#if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);
+#endif
     }
 
     private Representation createRepresentation(GameObject representationPrefab, BandObject bandObject)

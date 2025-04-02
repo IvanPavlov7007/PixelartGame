@@ -16,4 +16,14 @@ public class HeartController : MonoBehaviour
     {
         anim.speed = bps;
     }
+
+    public void Play()
+    {
+        applyBps(bps);
+    }
+
+    public void Stop()
+    {
+        anim.speed = 0f;
+    }
 }

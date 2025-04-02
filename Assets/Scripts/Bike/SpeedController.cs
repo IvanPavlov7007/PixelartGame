@@ -57,6 +57,7 @@ public class SpeedController : MonoBehaviour
     private float calculateBikeSlowdownRange(float speed)
     {
         //todo make relative to speed
+        //return 0;
         return fixedSlowdownRange;
     }
 
